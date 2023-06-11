@@ -235,6 +235,10 @@ class VideoPlayerApp:
 
     def start_click(self):
         if self.file_path:
+            self.directory_path = os.path.dirname(self.file_path)
+
+            # 디렉터리 경로와 파일 이름을 조합하여 파일 경로를 생성합니다.
+            self.temp_file_path = os.path.join(self.directory_path, "temp.mp4")
             self.change_page2()
             time.sleep(1)
             self.video_face_mosaic()
@@ -340,7 +344,7 @@ class VideoPlayerApp:
         frame_height = self.frame_height
 
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-        output_path = "../temp/temp.mp4"
+        output_path = self.temp_file_path
         out = cv2.VideoWriter(output_path, fourcc, fps, (video_width, video_height))
 
         self.processed_frames = 0
@@ -487,7 +491,7 @@ class VideoPlayerApp:
             height=90.0
         )
 
-        self.video_path = "../temp/temp.mp4"
+        self.video_path = self.temp_file_path
 
         self.temp_cap = cv2.VideoCapture(self.video_path)
         self.frame_index = 0
@@ -597,5 +601,6 @@ class VideoPlayerApp:
         self.window.mainloop()
 
 
-app = VideoPlayerApp()
-app.run()
+if __name__ == "__main__":
+    app = VideoPlayerApp()
+    app.run()
