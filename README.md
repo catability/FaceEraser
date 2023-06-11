@@ -9,4 +9,6 @@ ICT폴리텍대학-정보보안학과-프로젝트(얼굴 모자이크)
 
 pip install -r requirements.txt
 
+<br>
+
 src/main.py 실행
