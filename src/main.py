@@ -235,10 +235,12 @@ class VideoPlayerApp:
 
     def start_click(self):
         if self.file_path:
-            self.directory_path = os.path.dirname(self.file_path)
+            # self.directory_path = os.path.dirname(self.file_path)
 
-            # 디렉터리 경로와 파일 이름을 조합하여 파일 경로를 생성합니다.
-            self.temp_file_path = os.path.join(self.directory_path, "temp.mp4")
+            # # 디렉터리 경로와 파일 이름을 조합하여 파일 경로를 생성합니다.
+            # self.temp_file_path = os.path.join(self.directory_path, "temp.mp4")
+            
+            self.temp_file_path="../temp/temp.mp4"
             self.change_page2()
             time.sleep(1)
             self.video_face_mosaic()
